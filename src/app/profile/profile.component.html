@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="jumbotron text-left">
+    <div class="row">
+      <div class="col-sm">
+        <b>Name :</b> Abhay Chaturvedi <br />
+        <b>Experience :</b> 2 years <br />
+        <b>Employer :</b> Swiggy <br />
+      </div>
+      <div class="col-sm">
+        <b>Overall Rating :</b> 3.0/5.0 <br />
+        <a href="https://www.linkedin.com/in/abhay-chaturvedi-0837a48b/"><b>Linkedin</b></a>
+      </div>
+    </div>
+
+    <p>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="incidents"
+      >
+        Incidents
+      </button>
+    </p>
+    <div id="incidents" class="row" [ngbCollapse]="isCollapsed">
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">Incident</th>
+            <th scope="col">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>No show on telephonic round</th>
+            <td>3</td>
+            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
+          </tr>
+          <tr>
+            <th>No show for F2F round</th>
+            <td>4</td>
+            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
+          </tr>
+          <tr>
+            <th>No show on Day of Joining</th>
+            <td>0</td>
+            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
+          </tr>
+          <tr>
+            <th>Quit within 1 year</th>
+            <td>1</td>
+            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -2,9 +2,9 @@
   <div class="jumbotron text-left">
     <div class="row">
       <div class="col-sm">
-        <b>Name :</b> Abhay Chaturvedi <br />
+        <b>Name :</b> Super recruiter <br />
         <b>Experience :</b> 2 years <br />
-        <b>Employer :</b> Swiggy <br />
+        <b>Employer :</b> Some recruitment firm <br />
       </div>
       <div class="col-sm">
         <b>Overall Rating :</b> 3.0/5.0 <br />
@@ -12,52 +12,18 @@
       </div>
     </div>
     <!-- </div> -->
-    <app-loader [isLoading]="isLoading"></app-loader>
 
-    <p>
-      <button
-        type="button"
-        class="btn btn-outline-primary"
-        (click)="isCollapsed = !isCollapsed"
-        [attr.aria-expanded]="!isCollapsed"
-        aria-controls="incidents"
-      >
-        Incidents
-      </button>
-    </p>
-    <div id="incidents" class="row" [ngbCollapse]="isCollapsed">
-      <table class="table ">
-        <thead>
-          <tr>
-            <th scope="col">Incident</th>
-            <th scope="col">Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>No show on telephonic round</th>
-            <td>3</td>
-            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
-          </tr>
-          <tr>
-            <th>No show for F2F round</th>
-            <td>4</td>
-            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
-          </tr>
-          <tr>
-            <th>No show on Day of Joining</th>
-            <td>0</td>
-            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
-          </tr>
-          <tr>
-            <th>Quit within 1 year</th>
-            <td>1</td>
-            <td><button type="button" class="btn btn-info btn-sm">report more</button></td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="news_feed" class="card">
+        <div class="card-body">
+            <h5 class="card-title">Someone added new F2F incident for <a href="profile">abhay chaturvedi</a></h5>
+            <p class="card-text">This is a candidate you are following</p>
+        </div>
     </div>
-
-    <q [hidden]="isLoading">{{ quote }}</q>
+    <div id="news_feed" class="card">
+        <div class="card-body">
+            <h5 class="card-title">Someone added new F2F incident for <a href="profile">abhay chaturvedi</a></h5>
+            <p class="card-text">This is a candidate you are following</p>
+        </div>
+    </div>
   </div>
 </div>
