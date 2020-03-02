@@ -8,6 +8,8 @@ import { filter, map, switchMap } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { Logger, I18nService, untilDestroyed } from '@app/core';
 
+import { AuthService, FacebookLoginProvider,GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+
 const log = new Logger('App');
 
 @Component({
@@ -16,12 +18,16 @@ const log = new Logger('App');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+  user: SocialUser;
+  loggedIn: boolean;  
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private translateService: TranslateService,
-    private i18nService: I18nService
+    private i18nService: I18nService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -29,6 +35,14 @@ export class AppComponent implements OnInit, OnDestroy {
     if (environment.production) {
       Logger.enableProductionMode();
     }
+
+    this.signInWithGoogle();
+
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+      console.log(this.user);
+    });
 
     log.debug('init');
 
@@ -57,9 +71,17 @@ export class AppComponent implements OnInit, OnDestroy {
           this.titleService.setTitle(this.translateService.instant(title));
         }
       });
+
   }
 
   ngOnDestroy() {
     this.i18nService.destroy();
+  }
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }  
+  signOut(): void {
+    this.authService.signOut();
   }
 }
