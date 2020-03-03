@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { I18nService } from '@app/core';
+import { LoginService } from '../../login/login.service';
+
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,7 @@ import { I18nService } from '@app/core';
 export class HeaderComponent implements OnInit {
   menuHidden = true;
 
-  constructor(private i18nService: I18nService) {}
+  constructor(private i18nService: I18nService,private loginService:LoginService) {}
 
   ngOnInit() {}
 
@@ -28,5 +30,9 @@ export class HeaderComponent implements OnInit {
 
   get languages(): string[] {
     return this.i18nService.supportedLanguages;
+  }
+
+  public logout() {
+    this.loginService.signOut();
   }
 }

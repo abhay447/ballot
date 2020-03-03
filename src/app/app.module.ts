@@ -11,21 +11,11 @@ import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CookieService } from 'ngx-cookie-service';
+
+import { provideConfig } from '../app/login/login.service';
 
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider,GoogleLoginProvider } from 'angularx-social-login';
-
-const config = new AuthServiceConfig([
-  {
-    id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("672236577266-s79k884sk8t5op96qdtusp7j6n43004h.apps.googleusercontent.com")
-  },
-
-]);
-
-export function provideConfig() {
-  return config;
-}
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -45,7 +35,8 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

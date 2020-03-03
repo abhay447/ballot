@@ -28,6 +28,9 @@
         </div>
       </form>
       <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link text-uppercase" (click)="logout()" [routerLink]="">
+          <span translate>LOGOUT</span>
+        </a>
         <div class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
           <a id="language-dropdown" class="nav-link" ngbDropdownToggle>{{ currentLanguage }}</a>
           <div ngbDropdownMenu aria-labelledby="language-dropdown">

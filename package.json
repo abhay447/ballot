@@ -36,6 +36,7 @@
     "angular-oauth2-oidc-client": "^1.0.0",
     "angularx-social-login": "^2.2.1",
     "bootstrap": "^4.1.1",
+    "ngx-cookie-service": "^2.4.0",
     "rxjs": "^6.5.2",
     "zone.js": "^0.9.1"
   },
