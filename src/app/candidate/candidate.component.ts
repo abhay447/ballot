@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  templateUrl: './candidate.component.html',
+  styleUrls: ['./candidate.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class CandidateComponent implements OnInit {
   public isCollapsed = false
   constructor() {}
 

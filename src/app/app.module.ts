@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CookieService } from 'ngx-cookie-service';
 
 import { provideConfig } from '../app/login/login.service';
+import { CandidateModule} from '../app/candidate/candidate.module'
 
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider,GoogleLoginProvider } from 'angularx-social-login';
 @NgModule({

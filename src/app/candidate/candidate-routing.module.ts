@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { extract } from '@app/core';
-import { ProfileComponent } from './profile.component';
+import { CandidateComponent } from './candidate.component';
 
 const routes: Routes = [
   // Module is lazy loaded, see app-routing.module.ts
-  { path: '', component: ProfileComponent, data: { title: extract('About') } }
+  { path: '', component: CandidateComponent, data: { title: extract('About') } }
 ];
 
 @NgModule({
@@ -14,4 +14,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class ProfileRoutingModule {}
+export class CandidateRoutingModule {}
