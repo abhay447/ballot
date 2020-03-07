@@ -8,6 +8,6 @@ import { CandidateRoutingModule } from './candidate-routing.module';
 
 @NgModule({
   declarations: [CandidateComponent],
-  imports: [CommonModule,NgbModule,SharedModule,CandidateComponent]
+  imports: [CommonModule,NgbModule,SharedModule,CandidateRoutingModule]
 })
 export class CandidateModule {}

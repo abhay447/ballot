@@ -6,7 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {  AuthServiceConfig, AuthService,GoogleLoginProvider,SocialUser } from 'angularx-social-login';
 
 import { Observable, of } from 'rxjs';
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 const config = new AuthServiceConfig([
   {
@@ -30,7 +30,8 @@ export class LoginService {
     user: SocialUser;
     constructor(
         private authService: AuthService,
-        private cookieService:CookieService) { 
+        private cookieService:CookieService,
+        private router: Router,) { 
             
     }
 
@@ -38,6 +39,7 @@ export class LoginService {
       console.log(this.cookieService.get(keyIsLoggedIn).length == 0)
       if(!this.cookieService.check(keyIsLoggedIn) 
         || this.cookieService.get(keyIsLoggedIn).length == 0){
+          this.router.navigate(['/login'])
         this.signInWithGoogle();
       }
 
@@ -48,9 +50,19 @@ export class LoginService {
             console.log(this.user);
             var date = new Date();
             this.cookieService.set(keyIsLoggedIn,"true",date.setHours(date.getHours() + 1));
+            this.router.navigate(['/home'])
           }
         });
-        return this.authService.authState;
+    }
+
+    isLoggedIn() {
+      return this.cookieService.check(keyIsLoggedIn) 
+        && this.cookieService.get(keyIsLoggedIn).length == 0
+        && this.loggedIn
+    }
+
+    getAuthState() {
+      return this.authService.authState;
     }
 
     signInWithGoogle(): void {
@@ -61,5 +73,6 @@ export class LoginService {
       console.log(this.cookieService.get(keyIsLoggedIn))
       this.loggedIn = false;
       this.authService.signOut();
+      this.router.navigate(['/login']);
     }
 }
